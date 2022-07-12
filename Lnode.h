@@ -10,7 +10,7 @@ class LNode {
 public:
     LNode();
 
-    LNode<T> *next();
+    LNode<T> *next()
     LNode<T> *prev();
     void next(LNode<T> *next);
     void prev(LNode<T> *prev);
