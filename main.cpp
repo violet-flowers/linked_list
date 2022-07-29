@@ -6,11 +6,12 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    if (argc != 2){
-        cout << "Usage" << argv[0] << "name of Input File"<<endl;
+
+    if (argc != 2) {
+        cout << "Usage" << argv[0] << "name of Input File" << endl;
     }
 
-    auto *linkedList = new LList<int>();
+    auto linkedList = new LList<int>;
     ifstream listStream;
     listStream.open(argv[1],ios::in);
     int data;
@@ -24,5 +25,8 @@ int main(int argc, char *argv[]) {
     }
 
     linkedList -> print();
+
+    cout<<"\nIs Palindrome: "<<linkedList->isPalindrome()<<endl;
+
     return 0;
 }

@@ -21,7 +21,7 @@ LNode<T> *LNode<T>::next() {
 
 
 template <class T>
-void LNode<T>::next(LNode <T> *next) {
+[[maybe_unused]] void LNode<T>::next(LNode <T> *next) {
     _next = next;
 }
 
@@ -39,6 +39,13 @@ LNode<T> *LNode<T>::prev() {
 template<class T>
 void LNode<T>::prev(LNode<T> *prev) {
     _prev = prev;
+}
+
+template<class T>
+LNode<T>::~LNode() {
+    _data = NULL;
+    _next = nullptr;
+    _prev = nullptr;
 }
 
 

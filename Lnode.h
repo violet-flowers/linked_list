@@ -2,17 +2,18 @@
 // Created by violet on 6/30/22.
 //
 
-#ifndef UNTITLED15_LNODE_H
-#define UNTITLED15_LNODE_H
+#ifndef LINKED_LISTS_LNODE_H
+#define LINKED_LISTS_LNODE_H
 
 template <class T>
 class LNode {
 public:
     LNode();
-
+    virtual ~LNode();
     LNode<T> *next();
     LNode<T> *prev();
-    void next(LNode<T> *next);
+
+    [[maybe_unused]] void next(LNode<T> *next);
     void prev(LNode<T> *prev);
     T &data();
 private:
@@ -23,4 +24,4 @@ private:
 
 #include "LNode.cpp"
 
-#endif //UNTITLED15_LNODE_H
+#endif //LINKED_LISTS_LNODE_H

@@ -2,8 +2,8 @@
 // Created by violet on 6/30/22.
 //
 
-#ifndef UNTITLED15_LLIST_H
-#define UNTITLED15_LLIST_H
+#ifndef LINKED_LISTS_LLIST_H
+#define LINKED_LISTS_LLIST_H
 
 #include "Lnode.h"
 
@@ -11,9 +11,10 @@ template<class T>
 class LList {
 public:
     LList();
-//    ~LList();
+    ~LList();
     void append(T data_val);
     void print();
+    bool isPalindrome();
 private:
     LNode<T> *head, *tail;
     T _size;
@@ -21,4 +22,4 @@ private:
 
 #include "LList.cpp"
 
-#endif //UNTITLED15_LLIST_H
+#endif //LINKED_LISTS_LLIST_H

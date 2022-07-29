@@ -20,18 +20,18 @@ LList<T>::LList(){
 template <class T>
 void LList<T>::append(T data_val) {
     //create a new node and set the data member as well
-    auto *newnode = new LNode<T>();
-    newnode->data() = data_val;
+    auto *newNode = new LNode<T>();
+    newNode->data() = data_val;
 
     if (_size == 0){
-        head = tail = newnode;
+        head = tail = newNode;
         _size ++;
     }
 
     else if (_size == 1){
-        head->next(newnode);
-        newnode->prev(head);
-        tail = newnode;
+        head->next(newNode);
+        newNode->prev(head);
+        tail = newNode;
         _size++;
     }
 
@@ -39,9 +39,9 @@ void LList<T>::append(T data_val) {
         LNode<T> *cur = head;
         while(cur != nullptr){
             if(cur->next() == nullptr){
-                cur->next(newnode);
-                newnode->prev(cur);
-                tail = newnode;
+                cur->next(newNode);
+                newNode->prev(cur);
+                tail = newNode;
                 _size++;
                 return;
             }
@@ -69,13 +69,29 @@ void LList<T>::print(){
     }
 }
 
-//template<class T>
-//LList<T>::~LList() {
-//    LNode<T> *cur = head;
-//    while(cur != nullptr){
-//        delete cur();
-//        delete cur();
-//        cur = cur->next();
-//    }
-//}
+template<class T>
+LList<T>::~LList() {
+    LNode<T> *cur = head;
+    LNode<T> *next;
+    while (cur != nullptr) {
+        next = cur->next();
+        delete cur;
+        cur = next;
+        _size--;
+    }
+}
+
+template<class T>
+bool LList<T>::isPalindrome() {
+    LNode<T> *cur = head;
+    LNode<T> *backwards_cur = tail;
+    while (cur != nullptr) {
+        if (cur->data() != backwards_cur->data()) {
+            return false;
+        }
+        cur = cur->next();
+        backwards_cur = backwards_cur->prev();
+    }
+    return true;
+}
 
